@@ -41,4 +41,31 @@ return require('packer').startup(function(use)
 	  'nvim-lualine/lualine.nvim',
 	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+  use({
+	  "jackMort/ChatGPT.nvim",
+	  config = function()
+		  require("chatgpt").setup()
+	  end,
+	  requires = {
+		  "MunifTanjim/nui.nvim",
+		  "nvim-lua/plenary.nvim",
+		  "folke/trouble.nvim",
+		  "nvim-telescope/telescope.nvim"
+	  }
+  })
+  use {
+	  'numToStr/Comment.nvim',
+	  config = function()
+		  require('Comment').setup()
+	  end
+  }
+  use({
+	  "kylechui/nvim-surround",
+	  tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+	  config = function()
+		  require("nvim-surround").setup({
+			  -- Configuration here, or leave empty to use defaults
+		  })
+	  end
+  })
 end)
